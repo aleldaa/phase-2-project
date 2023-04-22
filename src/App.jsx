@@ -43,6 +43,11 @@ function App() {
     const [games, setGames] = useState([])
     const [news, setNews] = useState([])
     const [giveaways, setGiveaways] = useState([])
+    const [searchQuery, setSearchQuery] = useState('')
+
+    function handleChange(e){
+      setSearchQuery(e.target.value)
+    }
 
   return (
     <div>
@@ -56,7 +61,7 @@ function App() {
             <NewsBlock news={news}/>
           </Route>
           <Route path='/games'>
-            <GameList games={games}/>
+            <GameList games={games} handleChange={handleChange} searchQuery={searchQuery}/>
           </Route>
           <Route path='/giveaways'>
             <GiveawayList giveaways={giveaways}/>
