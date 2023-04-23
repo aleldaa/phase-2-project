@@ -16,6 +16,7 @@ function GiveawayList({ giveaways }){
 
     return (
         <div>
+            <h2>Some fun Giveaways!</h2>
             {giveawayList}
         </div>
     )
