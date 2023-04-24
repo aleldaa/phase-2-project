@@ -1,14 +1,11 @@
 import React from "react"
 
-function Articles({ title, summary, image, url }){
+function Articles({ content }){
 
     return(
         <div>
             <div>
-                <img src={image} alt={title}/>
-                <h4>{title}</h4>
-                <p>{summary}</p>
-                <a href={url}>Read Full Article Here</a>
+                <div dangerouslySetInnerHTML={{ __html: content}} />
                 <br></br>
                 <br></br>
             </div>

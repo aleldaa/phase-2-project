@@ -21,6 +21,13 @@ function App() {
   useEffect(()=>{
     fetch('https://mmo-games.p.rapidapi.com/games?sort-by=alphabetical', options)
       .then(response => response.json())
+      .then(response => setAlphGames(response))
+      .catch(err => console.error(err));
+  }, [])
+
+  useEffect(()=>{
+    fetch('https://mmo-games.p.rapidapi.com/games', options)
+      .then(response => response.json())
       .then(response => setGames(response))
       .catch(err => console.error(err));
   }, [])
@@ -41,13 +48,21 @@ function App() {
 
     const [page, setPage] = useState('/')
     const [games, setGames] = useState([])
+    const [alphGames, setAlphGames] = useState([])
     const [news, setNews] = useState([])
     const [giveaways, setGiveaways] = useState([])
     const [searchQuery, setSearchQuery] = useState('')
+    // const [data, setData] = useState([])
+    // const [movedData, setMovedData] = useState([])
+    const [category, setCategory] = useState('All')
 
     function handleChange(e){
       setSearchQuery(e.target.value)
     }
+
+    const visibleGames = games.filter(
+      (game) => category === "All" || game.category === category
+    )
 
   return (
     <div>
@@ -55,13 +70,13 @@ function App() {
       <NavBar onChangePage={setPage}/>
       <Switch>
           <Route exact path='/'>
-            <HomePage />
+            <HomePage games={games.slice(0, 6)} news={news.slice(0, 6)} giveaways={giveaways} />
           </Route>
           <Route path='/news'>
             <NewsBlock news={news}/>
           </Route>
           <Route path='/games'>
-            <GameList games={games} handleChange={handleChange} searchQuery={searchQuery}/>
+            <GameList visibleGames={visibleGames} games={games} alphGames={alphGames} handleChange={handleChange} searchQuery={searchQuery}/>
           </Route>
           <Route path='/giveaways'>
             <GiveawayList giveaways={giveaways}/>
