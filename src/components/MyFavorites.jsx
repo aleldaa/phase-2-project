@@ -10,7 +10,7 @@ function MyFavorites({ games, favorite, setFavorite }){
 
     const favoritesList = favorite.map((element)=>{
         return(
-            <li>
+            <li className="list-bullets">
                 <img src={element.thumbnail} />
             </li>
         )

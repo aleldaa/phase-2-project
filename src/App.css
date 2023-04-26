@@ -296,14 +296,21 @@ nav li {
   text-align: center;
   margin-top: 20px;
   grid-column: 1 / 1;
+  margin-left: 30px;
+  
 }
 
 .my-favorites-container h1{
   margin: 10px;
+  
 }
 
 .my-favorites{
   background-color: rgba(201, 55, 231, 0.27);
   border-radius: 25px;
-  padding: 20px
+  padding: 20px;
+}
+
+.list-bullets{
+  list-style-type: none;
 }
