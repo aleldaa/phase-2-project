@@ -1,10 +1,13 @@
+import React, { useState } from "react"
 import Game from "./Game"
 import Search from "./Search"
 import Filter from "./Filter"
 
-function GameList({ games, handleChange, searchQuery, alphGames }){
+function GameList({ genres, games, handleChange, searchQuery, setGames, selectedOption, setSelectedOption }){
 
-    const gamesList = alphGames.map((game)=>{
+   
+
+    const gamesList = games.map((game)=>{
         return <Game 
                 key={game.id}
                 developer={game.developer}
@@ -17,20 +20,34 @@ function GameList({ games, handleChange, searchQuery, alphGames }){
                 thumbnail={game.thumbnail}
             />
     })
-
+console.log(gamesList)
     const displayGames = gamesList.filter((gameCard)=>{
+        // console.log(gameCard.props)
         return (
             gameCard.props.title.toLowerCase().includes(searchQuery.toLowerCase())
         )
         })
 
+    const displayGames2 = displayGames.filter((gameCard)=>{
+        // console.log(gameCard.props)
+        return (
+            gameCard.props.genre.toLowerCase().includes(selectedOption.toLowerCase())
+        )
+        })
+
     return(
-        <div>
-            <h2>Looking for More Games?</h2>
-            <Search handleChange={handleChange} searchQuery={searchQuery}/>
-            <Filter games={games} />
+        <div className="game-container">
+            <h1>Looking for More Games?</h1>
+            <div className="game-search">
+                <Search handleChange={handleChange} searchQuery={searchQuery}/>
+            </div>
+            <div className="game-filter">
+                <Filter genres={genres} games={games} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+            </div>
             <br></br>
-            {displayGames}
+            <div className="games-games">
+                {displayGames2}
+            </div>
         </div>
     )
 }

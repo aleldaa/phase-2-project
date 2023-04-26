@@ -7,12 +7,12 @@ function NewsBlock({news}){
         return <Articles
             key={n.id}
             content={n.article_content}
-
+            title={n.title}
         />
     })
 
     return(
-        <div>
+        <div className='news-block'>
             <ul className="articles">
                 <h2>Latest News in the MMO Community</h2>
                 {newsList}

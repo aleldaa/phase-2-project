@@ -1,42 +1,242 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  display: flex; /* 1 */
+  justify-content: space-between; /* 2 */
+  padding: 1rem 2rem; /* 3 */
+  background-image: url('https://i.pinimg.com/564x/70/84/c7/7084c765c15b0a3673411960e9dcc39d.jpg');
+}
+
+.main-title {
+  border-style: solid;
+  background-color: rgba(225, 225, 225, .75);
+  border-radius: 25px;
+  padding: 10px;
+  font-size: 25px;
+  margin: 5px;
+}
+
+.navbar-elements{
+  margin: 15px;
+  font-size: 20px;
+}
+
+nav ul {
+  display: flex; /* 5 */
+  list-style: none; /* 6 */
+}
+
+nav li {
+  border-style: solid;
+  background-color: rgba(225, 225, 225, .75);
+  border-radius: 25px;
+  padding: 6px;
+  margin: 10px;
+  font-weight: bold;
+  
+}
+
+.navlink{
+  text-decoration: none;
+  color: #000;
+}
+
+.newslist {
+  top: 80px;
+  left: 550px;
+  width: 405px;
+  border-style: solid;
+  border-radius: 25px;
+  border-color:  rgb(161, 86, 219);
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.newslist-container h1 {
+  position: absolute;
+  margin-left: 190px;
+  top: 130px;
+  color:  rgb(161, 86, 219);
+} 
+
+.newslist-container {
+  margin-left: 50px;
+  margin-top: 19px;
+}
+
+.news-prev-title{
+  padding-bottom: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.news-prev-image{
+  width: 400px;
+}
+
+.giveawaylist {
+  top: 110px;
+  width: 300px;
+  border-style: solid;
+  border-radius: 25px;
+  border-color:  rgb(161, 86, 219);
+  margin-top: 10px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.giveawaylist-container{
+  margin-left: 50px;
+  margin-top: 13px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.giveawaylist-container h1{
+  padding-left: 100px;
+  color:  rgb(161, 86, 219);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.giveaway-prev-container{
+  padding: 20px;
 }
 
-.card {
-  padding: 2em;
+.giveaway-prev-text{
+  color: #fff;
 }
 
-.read-the-docs {
-  color: #888;
+.home-page{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #000;
+}
+
+.gameslist{
+  border-style: solid;
+  border-radius: 25px;
+  border-color: rgb(161, 86, 219);
+  width: 500px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gameslist-container{
+  margin-left: 85px;
+
+}
+
+.gameslist-container h1 {
+  position: relative;
+  left: 180px;
+  margin-top: 10px;
+  color: rgb(161, 86, 219);
+}
+
+.game-prev-container {
+  position: relative;
+  width: 45%;
+  max-width: 300px;
+  padding: 10px;
+
+}
+
+.game-prev-image{
+  width: 100%;
+  height: auto;
+  padding-left: 7px;
+}
+
+.game-prev-middle {
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  left: 17px;
+  right: 0;
+  height: 84%;
+  width: 92%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(161, 86, 219, 0.9);
+}
+
+.game-prev-container:hover .game-prev-middle{
+  opacity: 1;
+}
+
+.game-prev-text{
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.news-block{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  background-color: #000;
+}
+
+.news-content{
+  color: rgba(198, 141, 240, 0.9);
+  text-align: center;
+  align-items: center;
+  font-size: 20px;
+  margin-top: 20px;
+
+}
+
+.news-container{
+  background-color: rgba(201, 55, 231, 0.27);
+  border-radius: 25px;
+  max-width: 60%;
+  margin-left: 230px;
+  margin-top: 30px;
+  padding: 40px;
+}
+
+.news-container h1{
+  color: rgb(161, 86, 219);
+  text-align: center;
+}
+
+.game-container{
+  background-color: #000;
+  display: grid;
+  grid-template-rows: 94fr;
+}
+
+.game-container h1{
+  color: rgb(161, 86, 219);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.game-search{
+  text-align: center;
+  margin-top: 20px;
+  
+}
+
+.game-filter{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.games-games{
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 205px;
+}
+
+.card-container{
+  padding: 10px;
 }

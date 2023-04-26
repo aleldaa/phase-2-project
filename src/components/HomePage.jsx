@@ -43,23 +43,23 @@ function HomePage({ games, news, giveaways }){
     })
 
     return(
-        <div>
-            <div>
-                <h2>Featured Games</h2>
-                {gamesList}
+        <div className="home-page">
+            <div className="gameslist-container">
+                <h1>Featured Games</h1>
+                <li className='gameslist'>{gamesList}</li>
             </div>
-            <div>
-                <h2>News</h2>
-                {newsList}
+            <div className="newslist-container">
+                <h1>News</h1>
+                <div className='newslist'>{newsList}</div>
             </div>
-            <div>
-                <h2>Giveaways</h2>
-                {giveawayList}
+            <div className="giveawaylist-container">
+                <h1>Giveaways</h1>
+                <div className="giveawaylist">{giveawayList}</div>
             </div>
-            <div>
+            {/* <div>
                 <h2>My Games</h2>
                 <ul></ul>
-            </div>
+            </div> */}
         </div>
     )
 }

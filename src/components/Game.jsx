@@ -14,10 +14,10 @@ function Game({ thumbnail, developer, genre, platform, releaseDate, summary, tit
     }
 
     return (
-        <div>
+        <div className="card-container">
             <img src={thumbnail} alt={title} onClick={handleClick}/>
             {displayInfo &&
-            <div>
+            <div className="card-info">
                 <h2>{title}</h2>
                 <h4>Developed by {developer}</h4>
                 <p>{summary}</p>

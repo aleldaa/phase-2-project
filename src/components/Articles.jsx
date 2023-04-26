@@ -1,14 +1,13 @@
 import React from "react"
 
-function Articles({ content }){
+function Articles({ content, title }){
 
     return(
-        <div>
-            <div>
-                <div dangerouslySetInnerHTML={{ __html: content}} />
-                <br></br>
-                <br></br>
-            </div>
+        <div className="news-container">
+            <h1>{title}</h1>
+            <div className='news-content' dangerouslySetInnerHTML={{ __html: content}}/>
+            <br></br>
+            <br></br>
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { Switch, Route } from "react-router-dom"
-import Header from "./components/Header"
 import GameList from './components/GameList'
 import NewsBlock from './components/NewsBlock'
 import GiveawayList from './components/GiveawayList'
@@ -17,13 +16,6 @@ function App() {
       'X-RapidAPI-Host': 'mmo-games.p.rapidapi.com'
     }
   };
-  
-  useEffect(()=>{
-    fetch('https://mmo-games.p.rapidapi.com/games?sort-by=alphabetical', options)
-      .then(response => response.json())
-      .then(response => setAlphGames(response))
-      .catch(err => console.error(err));
-  }, [])
 
   useEffect(()=>{
     fetch('https://mmo-games.p.rapidapi.com/games', options)
@@ -45,28 +37,30 @@ function App() {
         .then(response => setGiveaways(response))
         .catch(err => console.error(err));
     }, [])
-
+    const genre = ['MMORPG', 'Shooter', 'Strategy', 'ARPG', 'Battle Royale', 'Fighting', "Card Game", 'Action RPG', 'Racing', 'MOBA']
     const [page, setPage] = useState('/')
     const [games, setGames] = useState([])
     const [alphGames, setAlphGames] = useState([])
     const [news, setNews] = useState([])
     const [giveaways, setGiveaways] = useState([])
     const [searchQuery, setSearchQuery] = useState('')
-    // const [data, setData] = useState([])
-    // const [movedData, setMovedData] = useState([])
-    const [category, setCategory] = useState('All')
-
+    const [selectedOption, setSelectedOption] = useState("")
+    const [genres, setGenres] = useState(genre)
+//work on submit form before anything else tomorrow pls
+//also the linkedin thing is due
+    
+    console.log(selectedOption)
     function handleChange(e){
+      console.log(e.target.value)
       setSearchQuery(e.target.value)
     }
 
     const visibleGames = games.filter(
-      (game) => category === "All" || game.category === category
+      (game) => ( game.genre.toLowerCase().includes(selectedOption.toLowerCase()))
     )
 
   return (
     <div>
-      <Header />
       <NavBar onChangePage={setPage}/>
       <Switch>
           <Route exact path='/'>
@@ -76,7 +70,16 @@ function App() {
             <NewsBlock news={news}/>
           </Route>
           <Route path='/games'>
-            <GameList visibleGames={visibleGames} games={games} alphGames={alphGames} handleChange={handleChange} searchQuery={searchQuery}/>
+            <GameList 
+            games={visibleGames} 
+            setGames={setGames}
+            alphGames={alphGames} 
+            handleChange={handleChange} 
+            searchQuery={searchQuery}
+            selectedOption={selectedOption}
+            setSelectedOption={setSelectedOption}
+            genres={genres}
+            />
           </Route>
           <Route path='/giveaways'>
             <GiveawayList giveaways={giveaways}/>
