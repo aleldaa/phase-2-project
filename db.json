@@ -1,16 +1,24 @@
 {
-    "toys": [
-      {
-        "id": 1,
-        "name": "Woody",
-        "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-        "likes": 8
-      },
-      {
-        "id": 2,
-        "name": "Buzz Lightyear",
-        "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-        "likes": 14
-      }
-    ]
-  }
+  "favorites": [
+    {
+      "thumbnail": "https://www.mmobomb.com/g/14/thumbnail.jpg",
+      "id": 1
+    },
+    {
+      "thumbnail": "https://www.mmobomb.com/g/475/thumbnail.jpg",
+      "id": 2
+    },
+    {
+      "thumbnail": "https://www.mmobomb.com/g/286/thumbnail.jpg",
+      "id": 3
+    },
+    {
+      "thumbnail": "https://www.mmobomb.com/g/466/thumbnail.jpg",
+      "id": 4
+    },
+    {
+      "thumbnail": "https://www.mmobomb.com/g/433/thumbnail.jpg",
+      "id": 5
+    }
+  ]
+}

@@ -1,21 +1,33 @@
 import React, { useState } from "react"
 
-function Game({ thumbnail, developer, genre, platform, releaseDate, summary, title, gameUrl }){
+function Game({ favorite, setFavorite, thumbnail, developer, genre, platform, releaseDate, summary, title, gameUrl }){
 
     const [displayInfo, setDisplayInfo] = useState(false)
-    const [favorite, setFavorite] = useState(false)
+    const [addToFavs, setAddToFavs] = useState(false)
 
     function handleClick(){
         setDisplayInfo(!displayInfo)
     }
 
     function handleFavorite(){
-        setFavorite(!favorite)
+        setAddToFavs(!addToFavs)
+        const newFavorite = {
+            thumbnail
+        }
+        console.log(newFavorite)
+        fetch('http://localhost:3000/favorites', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(newFavorite)
+        })
+        .then((res)=>res.json())
+        .then((data)=>setFavorite([...favorite, data]))
+        // rework set favorite to include past favorites, current function rewrites entire array with one object
     }
 
     return (
         <div className="card-container">
-            <img src={thumbnail} alt={title} onClick={handleClick}/>
+            <img src={thumbnail} alt={title} onClick={handleClick} className="card-img"/>
             {displayInfo &&
             <div className="card-info">
                 <h2>{title}</h2>
@@ -26,7 +38,7 @@ function Game({ thumbnail, developer, genre, platform, releaseDate, summary, tit
                 <h5>Released {releaseDate}</h5>
                 <h5>Play on {platform}</h5>
                 <br></br>
-                {favorite ? (
+                {addToFavs ? (
                     <button className="emoji-button favorite active" onClick={handleFavorite} >Remove from My Games</button>
                     ) : (
                     <button className="emoji-button favorite" onClick={handleFavorite} >Add to My Games</button>

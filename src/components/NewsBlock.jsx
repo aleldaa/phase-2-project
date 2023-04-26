@@ -17,6 +17,8 @@ function NewsBlock({news}){
                 <h2>Latest News in the MMO Community</h2>
                 {newsList}
             </ul> 
+            <div>
+            </div>
         </div>
     )
 }

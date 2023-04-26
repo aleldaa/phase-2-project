@@ -37,6 +37,7 @@ function App() {
         .then(response => setGiveaways(response))
         .catch(err => console.error(err));
     }, [])
+    
     const genre = ['MMORPG', 'Shooter', 'Strategy', 'ARPG', 'Battle Royale', 'Fighting', "Card Game", 'Action RPG', 'Racing', 'MOBA']
     const [page, setPage] = useState('/')
     const [games, setGames] = useState([])
@@ -46,8 +47,6 @@ function App() {
     const [searchQuery, setSearchQuery] = useState('')
     const [selectedOption, setSelectedOption] = useState("")
     const [genres, setGenres] = useState(genre)
-//work on submit form before anything else tomorrow pls
-//also the linkedin thing is due
     
     console.log(selectedOption)
     function handleChange(e){
@@ -64,7 +63,7 @@ function App() {
       <NavBar onChangePage={setPage}/>
       <Switch>
           <Route exact path='/'>
-            <HomePage games={games.slice(0, 6)} news={news.slice(0, 6)} giveaways={giveaways} />
+            <HomePage games={games.slice(0, 6)} news={news.slice(0, 3)} giveaways={giveaways} games1={games} setGames={setGames}/>
           </Route>
           <Route path='/news'>
             <NewsBlock news={news}/>

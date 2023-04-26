@@ -2,10 +2,12 @@ import React, { useState } from "react"
 import Game from "./Game"
 import Search from "./Search"
 import Filter from "./Filter"
+import MyFavorites from "./MyFavorites"
 
-function GameList({ genres, games, handleChange, searchQuery, setGames, selectedOption, setSelectedOption }){
+function GameList({ genres, games, handleChange, searchQuery, selectedOption, setSelectedOption }){
 
-   
+    const [favorite, setFavorite] = useState([])
+
 
     const gamesList = games.map((game)=>{
         return <Game 
@@ -18,21 +20,17 @@ function GameList({ genres, games, handleChange, searchQuery, setGames, selected
                 summary={game.short_description}
                 title={game.title}
                 thumbnail={game.thumbnail}
+                favorite={favorite}
+                setFavorite={setFavorite}
             />
     })
-console.log(gamesList)
+
     const displayGames = gamesList.filter((gameCard)=>{
-        // console.log(gameCard.props)
-        return (
-            gameCard.props.title.toLowerCase().includes(searchQuery.toLowerCase())
-        )
+        return (gameCard.props.title.toLowerCase().includes(searchQuery.toLowerCase()))
         })
 
     const displayGames2 = displayGames.filter((gameCard)=>{
-        // console.log(gameCard.props)
-        return (
-            gameCard.props.genre.toLowerCase().includes(selectedOption.toLowerCase())
-        )
+        return (gameCard.props.genre.toLowerCase().includes(selectedOption.toLowerCase()))
         })
 
     return(
@@ -45,6 +43,12 @@ console.log(gamesList)
                 <Filter genres={genres} games={games} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
             </div>
             <br></br>
+            <div className="my-favorites-container">
+                <h1>My Games</h1>
+                <div className="my-favorites">
+                    <MyFavorites favorite={favorite} setFavorite={setFavorite} /> 
+                </div>
+            </div>
             <div className="games-games">
                 {displayGames2}
             </div>

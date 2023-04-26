@@ -2,8 +2,9 @@ import React, { useState } from "react"
 import ArticlePrev from "./ArticlePrev"
 import GamePrev from "./GamePrev"
 import GiveawayPrev from "./GiveawayPrev"
+import MyFavorites from "./MyFavorites"
 
-function HomePage({ games, news, giveaways }){
+function HomePage({ games, news, giveaways, games1, setGames }){
 
     const [data, setData] = useState([])
 
@@ -44,9 +45,11 @@ function HomePage({ games, news, giveaways }){
 
     return(
         <div className="home-page">
-            <div className="gameslist-container">
-                <h1>Featured Games</h1>
-                <li className='gameslist'>{gamesList}</li>
+            <div>
+                <div className="gameslist-container">
+                    <h1>Featured Games</h1>
+                    <li className='gameslist'>{gamesList}</li>
+                </div>
             </div>
             <div className="newslist-container">
                 <h1>News</h1>
@@ -56,10 +59,6 @@ function HomePage({ games, news, giveaways }){
                 <h1>Giveaways</h1>
                 <div className="giveawaylist">{giveawayList}</div>
             </div>
-            {/* <div>
-                <h2>My Games</h2>
-                <ul></ul>
-            </div> */}
         </div>
     )
 }
