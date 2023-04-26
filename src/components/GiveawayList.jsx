@@ -3,7 +3,6 @@ import Giveaways from './Giveaways'
 function GiveawayList({ giveaways }){
 
     const giveawayList = giveaways.map((giveaway)=>{
-        console.log(giveaway)
         return <Giveaways 
                 key={giveaway.id}
                 id={giveaway.id}
@@ -15,9 +14,11 @@ function GiveawayList({ giveaways }){
     })
 
     return (
-        <div>
+        <div className='giveaway-container'>
             <h2>Some fun Giveaways!</h2>
-            {giveawayList}
+            <div className='giveaway-list'>
+                {giveawayList}
+            </div>
         </div>
     )
 }

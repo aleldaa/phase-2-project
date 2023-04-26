@@ -19,18 +19,21 @@ function Game({ thumbnail, developer, genre, platform, releaseDate, summary, tit
             {displayInfo &&
             <div className="card-info">
                 <h2>{title}</h2>
+                <br></br>
                 <h4>Developed by {developer}</h4>
                 <p>{summary}</p>
                 <h5>{genre}</h5>
                 <h5>Released {releaseDate}</h5>
                 <h5>Play on {platform}</h5>
+                <br></br>
                 {favorite ? (
                     <button className="emoji-button favorite active" onClick={handleFavorite} >Remove from My Games</button>
                     ) : (
                     <button className="emoji-button favorite" onClick={handleFavorite} >Add to My Games</button>
                 )}
                 <br></br>
-                <a href={gameUrl}>Click here to buy the game!</a>
+                <br></br>
+                <a className="page-links" href={gameUrl}>Click here to buy the game!</a>
             </div>
             }
         </div>
