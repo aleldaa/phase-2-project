@@ -11,7 +11,7 @@ function Game({ gameId, favorite, setFavorite, thumbnail, developer, genre, plat
     }
 
     function handleDelete(){
-        setAddToFavs(!addToFavs)
+        
         const favoritesList = favorite.filter((faveGame)=>{
             return(
                 faveGame.thumbnail === thumbnail
