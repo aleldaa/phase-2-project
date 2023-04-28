@@ -1,7 +1,7 @@
 import React from "react"
 import { useState } from "react"
 
-function GamePrev({ thumbnail, title, developer, gameUrl, genre, platform, releaseDate }){
+function GamePrev({ thumbnail, title, gameUrl, genre }){
 
     const [hover, setHover] = useState(false)
     console.log(title)

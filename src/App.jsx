@@ -63,7 +63,7 @@ function App() {
       <NavBar onChangePage={setPage}/>
       <Switch>
           <Route exact path='/'>
-            <HomePage games={games.slice(0, 6)} news={news.slice(0, 3)} giveaways={giveaways} games1={games} setGames={setGames}/>
+            <HomePage games={games.slice(0, 6)} news={news.slice(0, 3)} giveaways={giveaways} setGames={setGames}/>
           </Route>
           <Route path='/news'>
             <NewsBlock news={news}/>
@@ -72,7 +72,6 @@ function App() {
             <GameList 
             games={visibleGames} 
             setGames={setGames}
-            alphGames={alphGames} 
             handleChange={handleChange} 
             searchQuery={searchQuery}
             selectedOption={selectedOption}

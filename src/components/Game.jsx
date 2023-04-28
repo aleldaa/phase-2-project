@@ -22,7 +22,6 @@ function Game({ favorite, setFavorite, thumbnail, developer, genre, platform, re
         })
         .then((res)=>res.json())
         .then((data)=>setFavorite([...favorite, data]))
-        // rework set favorite to include past favorites, current function rewrites entire array with one object
     }
 
     return (

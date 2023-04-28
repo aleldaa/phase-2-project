@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-function MyFavorites({ games, favorite, setFavorite }){
+function MyFavorites({ favorite, setFavorite }){
 
     useEffect(()=>{
         fetch('http://localhost:3000/favorites')

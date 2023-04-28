@@ -4,7 +4,7 @@ import GamePrev from "./GamePrev"
 import GiveawayPrev from "./GiveawayPrev"
 import MyFavorites from "./MyFavorites"
 
-function HomePage({ games, news, giveaways, games1, setGames }){
+function HomePage({ games, news, giveaways }){
 
     const [data, setData] = useState([])
 

@@ -8,7 +8,6 @@ function GameList({ genres, games, handleChange, searchQuery, selectedOption, se
 
     const [favorite, setFavorite] = useState([])
 
-
     const gamesList = games.map((game)=>{
         return <Game 
                 key={game.id}

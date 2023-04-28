@@ -5,7 +5,7 @@ function NavBar(){
     return(
         <nav>
             <div className="main-title">
-                <h1>MMO Gamer Zone 🎮</h1>
+                <h1>MMI Gamer Zone 🎮</h1>
             </div>
             <div className="navbar-elements">
                 <ul>
