@@ -21,6 +21,7 @@ function GameList({ genres, games, handleChange, searchQuery, selectedOption, se
                 thumbnail={game.thumbnail}
                 favorite={favorite}
                 setFavorite={setFavorite}
+                gameId={game.id}
             />
     })
 

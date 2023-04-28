@@ -1,12 +1,35 @@
 import React, { useState } from "react"
 
-function Game({ favorite, setFavorite, thumbnail, developer, genre, platform, releaseDate, summary, title, gameUrl }){
+function Game({ gameId, favorite, setFavorite, thumbnail, developer, genre, platform, releaseDate, summary, title, gameUrl }){
 
     const [displayInfo, setDisplayInfo] = useState(false)
     const [addToFavs, setAddToFavs] = useState(false)
+    const [onDelete, setOnDelete] = useState(true)
 
     function handleClick(){
         setDisplayInfo(!displayInfo)
+    }
+
+    function handleDelete(){
+        setAddToFavs(!addToFavs)
+        const favoritesList = favorite.filter((faveGame)=>{
+            return(
+                faveGame.thumbnail === thumbnail
+            )
+        })
+
+        const deleteID = favoritesList[0].id
+
+        const newFaves = favorite.filter((faveGame)=>{
+            return (deleteID !== faveGame.id)
+        })
+
+        fetch(`https://phase2-backend.onrender.com/favorites/${deleteID}`, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json"}
+        })
+            .then((res)=>res.json)
+            .then((data)=> setFavorite(newFaves))
     }
 
     function handleFavorite(){
@@ -38,7 +61,7 @@ function Game({ favorite, setFavorite, thumbnail, developer, genre, platform, re
                 <h5>Play on {platform}</h5>
                 <br></br>
                 {addToFavs ? (
-                    <button className="emoji-button favorite active" onClick={handleFavorite} >Remove from My Games</button>
+                    <button className="emoji-button favorite active" onClick={handleDelete} >Remove from My Games</button>
                     ) : (
                     <button className="emoji-button favorite" onClick={handleFavorite} >Add to My Games</button>
                 )}
