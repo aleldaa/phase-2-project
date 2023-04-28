@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 function MyFavorites({ favorite, setFavorite }){
 
     useEffect(()=>{
-        fetch('http://localhost:3000/favorites')
+        fetch('https://phase2-backend.onrender.com/favorites')
         .then((res)=>res.json())
         .then((data)=> setFavorite(data))
     }, [])

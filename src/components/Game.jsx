@@ -14,8 +14,8 @@ function Game({ favorite, setFavorite, thumbnail, developer, genre, platform, re
         const newFavorite = {
             thumbnail
         }
-        console.log(newFavorite)
-        fetch('http://localhost:3000/favorites', {
+
+        fetch('https://phase2-backend.onrender.com/favorites', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newFavorite)
